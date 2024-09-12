@@ -2,8 +2,6 @@
 import Choices from "./chatbot/Choices";
 import Details from "./chatbot/Details";
 import Header from "./chatbot/Header";
-import Receiver from "./chatbot/Receiver";
-import Sender from "./chatbot/Sender";
 
 function Chatbot({ animate, setIsOpen }) {
 	return (
