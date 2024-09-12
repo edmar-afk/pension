@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */import { motion } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";
 import questions from "../../assets/data";
 import api from "../../assets/api";
 import Sender from "../chatbot/Sender";
@@ -10,15 +9,23 @@ function Choices({ animate }) {
 	const bottomRef = useRef(null); // Reference for the bottom of the conversation
 
 	const handleQuestionClick = async (question) => {
+		const timeSent = new Date().toLocaleTimeString(); // Get current time
+
 		// Add the user's question to the conversation
-		setConversation((prevConversation) => [...prevConversation, { type: "user", content: question }]);
+		setConversation((prevConversation) => [...prevConversation, { type: "user", content: question, timeSent }]);
 
 		try {
 			const result = await api.post("/api/chatbot/", { question });
-			// Add the bot's response to the conversation
-			setConversation((prevConversation) => [...prevConversation, { type: "bot", content: result.data.answer }]);
+			// Add the bot's response to the conversation with time sent
+			setConversation((prevConversation) => [
+				...prevConversation,
+				{ type: "bot", content: result.data.answer, timeSent: new Date().toLocaleTimeString() },
+			]);
 		} catch (error) {
-			setConversation((prevConversation) => [...prevConversation, { type: "bot", content: "Error fetching response" }]);
+			setConversation((prevConversation) => [
+				...prevConversation,
+				{ type: "bot", content: "Error fetching response", timeSent: new Date().toLocaleTimeString() },
+			]);
 		}
 	};
 
@@ -74,11 +81,13 @@ function Choices({ animate }) {
 						<Sender
 							key={index}
 							userQuestion={message.content}
+							timeSent={message.timeSent} // Pass timeSent to Sender
 						/>
 					) : (
 						<Receiver
 							key={index}
 							botResponse={message.content}
+							timeSent={message.timeSent} // Pass timeSent to Receiver
 						/>
 					)
 				)}
