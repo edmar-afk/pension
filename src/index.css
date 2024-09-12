@@ -9,9 +9,4 @@ body {
 }
 
 /* Prevent zooming with double-tap */
-html, body {
-  touch-callout: none;
-  user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
+

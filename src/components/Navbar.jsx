@@ -11,7 +11,7 @@ function Navbar() {
 
 	return (
 		<>
-			<nav className="block w-full px-4 py-2 mx-auto bg-white bg-opacity-50 sticky top-0 shadow lg:px-8 lg:py-3 backdrop-blur-lg backdrop-saturate-150 z-50">
+			<nav className="w-full px-4 py-2 mx-auto bg-white bg-opacity-50 fixed top-0 shadow lg:px-8 lg:py-3 backdrop-blur-lg backdrop-saturate-150 z-50">
 				<div className="container flex flex-wrap items-center justify-between mx-auto text-slate-800">
 					<img
 						src={logo}

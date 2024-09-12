@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";
-import questions from "../../assets/data";
+/* eslint-disable react/prop-types */import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { questions } from "../../assets/data";
 import api from "../../assets/api";
 import Sender from "../chatbot/Sender";
 import Receiver from "../chatbot/Receiver";
