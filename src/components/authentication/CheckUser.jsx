@@ -1,5 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */import { useState } from "react";import checkerBg from "../../assets/svg/loginChecker.svg";
-import Login from "../../routes/Login";
+/* eslint-disable react/no-unescaped-entities */import { useState } from "react";import checkerBg from "../../assets/svg/loginChecker.svg";import Login from "../../routes/Login";
 import Register from "../../routes/Register";
 
 function CheckUser() {
@@ -56,13 +55,13 @@ function CheckUser() {
 						<div className="flex flex-row justify-evenly mt-12 w-full">
 							{/* Button to show login */}
 							<div
-								className="bg-purple-600 text-white py-2 px-8 rounded-lg cursor-pointer"
+								className="bg-purple-600 text-white py-2 px-8 rounded-lg cursor-pointer hover:scale-110 duration-300 hover:shadow-2xl"
 								onClick={handleShowLogin}>
 								Login
 							</div>
 							{/* Button to show register */}
 							<div
-								className="text-purple-600 border-2 border-purple-600 py-2 px-8 rounded-lg cursor-pointer"
+								className="text-purple-600 border-2 border-purple-600 py-2 px-8 rounded-lg cursor-pointer hover:scale-110 duration-300 hover:shadow-2xl"
 								onClick={handleShowRegister}>
 								Register
 							</div>
@@ -73,7 +72,12 @@ function CheckUser() {
 
 			{/* Conditionally render Login and Register components */}
 			{showLogin && <Login back={back} />}
-			{showRegister && <Register handleBack={handleBackToCheckUser} back={back} />}
+			{showRegister && (
+				<Register
+					handleBack={handleBackToCheckUser}
+					back={back}
+				/>
+			)}
 		</>
 	);
 }
