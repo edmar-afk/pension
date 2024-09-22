@@ -23,7 +23,7 @@ function Navbar() {
 							<li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">
 								<button
 									onClick={showChatBot}
-									className="flex items-center text-purple-700">
+									className="flex items-center text-purple-900">
 									<SmartToyIcon
 										className="mr-2"
 										fontSize="large"

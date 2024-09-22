@@ -4,6 +4,7 @@ import Cta from "../components/Cta";
 import Features from "../components/Features";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
+import Fab from "../components/Fab";
 function Homepage() {
 	return (
 		<>
@@ -12,7 +13,8 @@ function Homepage() {
 			<Features />
 			<ChatBotDrawer />
 			<Cta />
-			<Footer/>
+			<Footer />
+			<Fab/>
 		</>
 	);
 }

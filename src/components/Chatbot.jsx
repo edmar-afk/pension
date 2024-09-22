@@ -3,11 +3,11 @@ import Choices from "./chatbot/Choices";
 import Details from "./chatbot/Details";
 import Header from "./chatbot/Header";
 
-function Chatbot({ animate, setIsOpen }) {
+function Chatbot({ animate, setIsOpen, name }) {
 	return (
 		<>
 			<Header setIsOpen={setIsOpen} />
-			<Details/>
+			<Details name={name} />
 			<Choices animate={animate} />
 			<div className="flex w-full flex-col gap-4 px-4"></div>
 		</>
