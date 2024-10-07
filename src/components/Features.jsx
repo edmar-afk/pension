@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";import { useInView } from "react-intersection-observer";
 import { features } from "../assets/data.js";
 
 function Features() {
@@ -29,10 +28,10 @@ function Features() {
 			<h2 className="text-gray-800 sm:text-4xl text-2xl font-extrabold text-center mb-16">
 				Discover Our Exclusive Services
 			</h2>
-			<div className="grid lg:grid-cols-3 md:grid-cols-2 gap-12">
+			<div className="flex flex-row justify-evenly flex-wrap gap-12">
 				{features.map((feature, i) => (
 					<motion.div
-						className="text-center flex flex-col items-center"
+						className="text-center flex flex-col items-center w-96"
 						key={feature.id} // Use feature.id as key
 						custom={i}
 						initial="hidden"

@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import NoInterConnection from "./components/NoInternetConnection";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Homepage from "./routes/Homepage";
+import Rooms from "./routes/Rooms";
+import Events from "./routes/Events";
 
 
 function Logout() {
@@ -52,7 +54,14 @@ function App() {
 							path="/"
 							element={<Homepage />}
 						/>
-						
+						<Route
+							path="/rooms"
+							element={<Rooms />}
+						/>
+						<Route
+							path="/events"
+							element={<Events />}
+						/>
 						<Route
 							path="/logout"
 							element={<Logout />}

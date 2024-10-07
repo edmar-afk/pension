@@ -20,8 +20,8 @@ const Footer = () =>   {	const contactMethods = [
 					/>
 				</svg>
 			),
-			contact: "Mountain View, California, United State.",
-			title: "Our office",
+			contact: "Lakewood",
+			title: "Our Location",
 		},
 		{
 			icon: (
@@ -39,7 +39,7 @@ const Footer = () =>   {	const contactMethods = [
 					/>
 				</svg>
 			),
-			contact: "+1 (555) 000-000",
+			contact: "+63 9123456789",
 			title: "Phone",
 		},
 		{
