@@ -1,4 +1,8 @@
-import top from "../../assets/img/events/top.jpg";import bot from "../../assets/img/events/bot.jpg";import Wedding1 from "./Wedding1";
+import bot from "../../assets/img/events/bot.jpg";
+import Wedding1 from "./Wedding1";
+import Wedding2 from "./Wedding2";
+import Wedding3 from "./Wedding3";
+
 function Body() {
 	return (
 		<>
@@ -11,7 +15,8 @@ function Body() {
 				<p className="uppercase font-cursive text-2xl sm:text-4xl italic text-center">discover exclusive service</p>
 			</div>
 			<Wedding1 />
-			
+			<Wedding2 />
+			<Wedding3/>
 		</>
 	);
 }

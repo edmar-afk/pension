@@ -65,10 +65,10 @@ const Login = ({ back }) => {
 									value={username}
 									onChange={(e) => setUsername(e.target.value)}
 									required
-									className="w-full text-gray-800 text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
+									className="w-full text-gray-800 bg-white text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
 									placeholder="09XXXXXXXXX"
 								/>
-								<AccountCircleIcon />
+								<AccountCircleIcon className="text-[#d98ab5]"/>
 							</div>
 						</div>
 
@@ -81,10 +81,10 @@ const Login = ({ back }) => {
 									value={password}
 									onChange={(e) => setPassword(e.target.value)}
 									required
-									className="w-full text-gray-800 text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
+									className="w-full text-gray-800 bg-white text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
 									placeholder="Enter password"
 								/>
-								<LockIcon />
+								<LockIcon className="text-[#d98ab5]"/>
 							</div>
 						</div>
 

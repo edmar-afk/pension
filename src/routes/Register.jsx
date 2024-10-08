@@ -104,7 +104,7 @@ function Register({ handleBack, back }) {
 										value={firstName}
 										onChange={(e) => setFirstName(e.target.value)}
 										required
-										className="w-full text-gray-800 text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
+										className="w-full text-gray-800 text-sm bg-white border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
 										placeholder="Enter your full name"
 									/>
 								</div>
@@ -116,7 +116,7 @@ function Register({ handleBack, back }) {
 										value={mobileNum}
 										onChange={handleMobileNumChange}
 										required
-										className="w-full text-gray-800 text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
+										className="w-full text-gray-800 text-sm bg-white border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
 										placeholder="09XXXXXXXXX"
 									/>
 								</div>
@@ -128,7 +128,7 @@ function Register({ handleBack, back }) {
 										value={password}
 										onChange={handlePasswordChange}
 										required
-										className="w-full text-gray-800 text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
+										className="w-full text-gray-800 text-sm bg-white border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
 										placeholder="Enter password"
 									/>
 								</div>
@@ -140,7 +140,7 @@ function Register({ handleBack, back }) {
 										value={password2}
 										onChange={handlePassword2Change}
 										required
-										className="w-full text-gray-800 text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
+										className="w-full text-gray-800 text-sm bg-white border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
 										placeholder="Confirm your password"
 									/>
 								</div>

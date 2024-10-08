@@ -1,6 +1,9 @@
 import Body from "../components/events/Body";
 import Fab from "../components/Fab";
+import Footer from "../components/Footer";
 import NavBar from "../components/Navbar";
+
+
 function Events() {
 	return (
 		<>
@@ -9,6 +12,7 @@ function Events() {
 				<Body/>
 			</div>
 			<Fab />
+			<Footer/>
 		</>
 	);
 }

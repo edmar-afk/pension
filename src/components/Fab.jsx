@@ -1,5 +1,4 @@
-import ThreePIcon from "@mui/icons-material/ThreeP";import ChatBotDrawer from "./ChatBotDrawer";import { useState } from "react";
-function Fab() {
+import ThreePIcon from "@mui/icons-material/ThreeP";import ChatBotDrawer from "./ChatBotDrawer";import { useState } from "react";function Fab() {
 	const [isChatBotOpen, setChatBotOpen] = useState(false);
 
 	const showChatBot = () => {
@@ -9,7 +8,7 @@ function Fab() {
 		<>
 			<div
 				onClick={showChatBot}
-				className="fixed bg-purple-700 p-4 bottom-8 right-8 text-white rounded-full shadow-xl animate-bounce cursor-pointer">
+				className="fixed bg-[#d98ab5] p-4 bottom-8 right-8 text-white rounded-full shadow-xl animate-bounce cursor-pointer">
 				<ThreePIcon fontSize="large" />
 			</div>
 			<ChatBotDrawer

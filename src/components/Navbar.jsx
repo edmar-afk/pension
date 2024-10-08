@@ -1,6 +1,4 @@
-import { useState } from "react";import { NavLink } from "react-router-dom";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
+import { useState } from "react";import { NavLink } from "react-router-dom";import AppBar from "@mui/material/AppBar";import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
@@ -9,7 +7,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { Box, Button } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import logo from "../assets/img/logo.jpg";
+import logo from "../assets/img/logo.png";
 
 export default function NavBar() {
 	const [anchorEl, setAnchorEl] = useState(null);
@@ -25,7 +23,7 @@ export default function NavBar() {
 	};
 
 	const navLinkStyles = ({ isActive }) => ({
-		backgroundColor: isActive ? "purple" : "transparent",
+		backgroundColor: isActive ? "#d98ab5" : "transparent",
 		color: isActive ? "white" : "black",
 		textDecoration: "none",
 		padding: "8px 16px",
@@ -134,7 +132,7 @@ export default function NavBar() {
 							</NavLink>
 							<Button
 								variant="contained"
-								color="secondary">
+								sx={{ backgroundColor: "#d98ab5", color: "#fff" }}>
 								Chatbot
 							</Button>
 						</Box>

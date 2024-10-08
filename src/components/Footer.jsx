@@ -1,5 +1,4 @@
-const Footer = () =>   {	const contactMethods = [
-		{
+const Footer = () =>   {	const contactMethods = [		{
 			icon: (
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +63,7 @@ const Footer = () =>   {	const contactMethods = [
 	];
 
 	return (
-		<main className="py-14 border-t-2 bg-purple-700/70">
+		<main className="py-14 border-t-2 bg-[#d98ab5]/90">
 			<div className="w-full mx-auto px-4 text-white md:px-8">
 				<div className="max-w-xl space-y-3">
 					<h3 className="text-white font-semibold">Contact</h3>

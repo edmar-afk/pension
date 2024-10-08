@@ -1,12 +1,11 @@
-/* eslint-disable react/no-unescaped-entities */ import wedding1 from "../../assets/img/events/wedding1/wedding1.jpg";
-import wedding2 from "../../assets/img/events/wedding1/wedding2.jpg";
+/* eslint-disable react/no-unescaped-entities */ import wedding1 from "../../assets/img/events/wedding1/wedding1.jpg";import wedding2 from "../../assets/img/events/wedding1/wedding2.jpg";
 import wedding3 from "../../assets/img/events/wedding1/wedding3.jpg";
 import wedding4 from "../../assets/img/events/wedding1/wedding4.jpg";
 
 function Wedding1() {
 	return (
 		<>
-			<div className="flex flex-col sm:flex-row items-center justify-center gap-8 font-[sans-serif] w-full mx-auto p-4 px-4 md:px-64">
+			<div className="font-cursive  flex flex-col sm:flex-row items-center justify-center gap-8 w-full mx-auto p-4 px-4 md:px-64">
 				<div className="w-full md:w-[630px] justify-center flex flex-wrap">
 					<img
 						src={wedding1}

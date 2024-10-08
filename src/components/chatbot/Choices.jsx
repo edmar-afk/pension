@@ -1,8 +1,4 @@
-/* eslint-disable react/prop-types */import { motion } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
-import { questions } from "../../assets/data";
-import api from "../../assets/api";
-import Sender from "../chatbot/Sender";
+/* eslint-disable react/prop-types */import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";import { questions } from "../../assets/data";import api from "../../assets/api";import Sender from "../chatbot/Sender";
 import Receiver from "../chatbot/Receiver";
 
 function Choices({ animate }) {
@@ -76,7 +72,7 @@ function Choices({ animate }) {
 					{questions.map((question, index) => (
 						<motion.p
 							key={question.id}
-							className="bg-purple-700 mb-6 text-white py-6 px-4 rounded-xl w-[150px] text-center flex items-center justify-center shadow-2xl cursor-pointer"
+							className="bg-[#d98ab5] mb-6 text-white py-6 px-4 rounded-xl w-[150px] text-center flex items-center justify-center shadow-2xl cursor-pointer"
 							initial={{ x: -100, opacity: 0 }}
 							animate={{
 								x: animate ? 0 : -100,
@@ -116,7 +112,7 @@ function Choices({ animate }) {
 					<div ref={bottomRef} />
 				</div>
 
-				<div className="fixed bottom-0 w-full h-24 bg-gradient-to-t from-purple-800"></div>
+				<div className="fixed bottom-0 w-full h-24 bg-gradient-to-t from-[#d98ab5]"></div>
 
 				{/* Input field for sending message */}
 				<div className="sticky bottom-4 w-[95%] mx-auto bg-white flex px-1 py-1 rounded-full border border-purple-500 overflow-hidden font-[sans-serif]">
@@ -132,7 +128,7 @@ function Choices({ animate }) {
 					/>
 					<button
 						type="button"
-						className="bg-purple-600 hover:bg-purple-700 transition-all text-white text-sm rounded-full px-5 py-2.5"
+						className="bg-[#d98ab5] hover:bg-[#d98ab5] transition-all text-white text-sm rounded-full px-5 py-2.5"
 						onClick={handleSendMessage} // Send message on click
 					>
 						Send

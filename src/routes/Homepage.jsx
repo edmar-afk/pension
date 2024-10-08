@@ -1,4 +1,4 @@
-import Footer from "../components/chatbot/Footer";
+import Footer from "../components/Footer";
 import ChatBotDrawer from "../components/ChatBotDrawer";
 import Cta from "../components/Cta";
 import Features from "../components/Features";

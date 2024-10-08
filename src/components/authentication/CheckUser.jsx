@@ -43,7 +43,7 @@ function CheckUser() {
 							alt=""
 							className="w-96 mx-auto"
 						/>
-						<p className="text-purple-600 font-bold text-2xl text-center">Ooops!</p>
+						<p className="text-[#d98ab5] font-bold text-2xl text-center">Ooops!</p>
 						<p className="text-lg text-center mx-12 mt-4">
 							The system detected that you didn't log in to our website. You don't have any active account. Login first
 							or Register in order to use our service chatbot.
@@ -55,13 +55,13 @@ function CheckUser() {
 						<div className="flex flex-row justify-evenly mt-12 w-full">
 							{/* Button to show login */}
 							<div
-								className="bg-purple-600 text-white py-2 px-8 rounded-lg cursor-pointer hover:scale-110 duration-300 hover:shadow-2xl"
+								className="bg-[#d98ab5] text-white py-2 px-8 rounded-lg cursor-pointer hover:scale-110 duration-300 hover:shadow-2xl"
 								onClick={handleShowLogin}>
 								Login
 							</div>
 							{/* Button to show register */}
 							<div
-								className="text-purple-600 border-2 border-purple-600 py-2 px-8 rounded-lg cursor-pointer hover:scale-110 duration-300 hover:shadow-2xl"
+								className="text-[#d98ab5] border-2 border-[#d98ab5] py-2 px-8 rounded-lg cursor-pointer hover:scale-110 duration-300 hover:shadow-2xl"
 								onClick={handleShowRegister}>
 								Register
 							</div>

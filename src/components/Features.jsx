@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";import { useInView } from "react-intersection-observer";
-import { features } from "../assets/data.js";
+import { motion } from "framer-motion";import { useInView } from "react-intersection-observer";import { features } from "../assets/data.js";
 
 function Features() {
 	const [ref, inView] = useInView({
@@ -44,7 +43,7 @@ function Features() {
 							viewBox="0 0 32 32">
 							{/* SVG path or content here */}
 						</svg>
-						<feature.icon className="text-purple-700 mb-2" />
+						<feature.icon className="text-[#d98ab5] mb-2" />
 						<h3 className="text-gray-800 text-xl font-semibold mb-3">{feature.feature}</h3>
 						<p className="text-gray-600 text-sm">{feature.details}</p>
 					</motion.div>
