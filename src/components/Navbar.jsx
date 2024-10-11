@@ -1,4 +1,7 @@
-import { useState } from "react";import { NavLink } from "react-router-dom";import AppBar from "@mui/material/AppBar";import Toolbar from "@mui/material/Toolbar";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
@@ -73,13 +76,7 @@ export default function NavBar() {
 										Home
 									</NavLink>
 								</MenuItem>
-								<MenuItem onClick={handleMenuClose}>
-									<NavLink
-										to="/gallery"
-										style={navLinkStyles}>
-										Gallery
-									</NavLink>
-								</MenuItem>
+
 								<MenuItem onClick={handleMenuClose}>
 									<NavLink
 										to="/rooms"
@@ -110,11 +107,7 @@ export default function NavBar() {
 								style={navLinkStyles}>
 								Home
 							</NavLink>
-							<NavLink
-								to="/gallery"
-								style={navLinkStyles}>
-								Gallery
-							</NavLink>
+
 							<NavLink
 								to="/rooms"
 								style={navLinkStyles}>
