@@ -1,9 +1,14 @@
-/* eslint-disable react/prop-types */import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";import { questions } from "../../assets/data";import api from "../../assets/api";import Sender from "../chatbot/Sender";
+/* eslint-disable react/prop-types */import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { questions } from "../../assets/data";
+import api from "../../assets/api";
+import Sender from "../chatbot/Sender";
 import Receiver from "../chatbot/Receiver";
 
 function Choices({ animate }) {
 	const [conversation, setConversation] = useState([]); // State to store conversation
 	const [inputMessage, setInputMessage] = useState(""); // State for the input field
+	const [showQuestions, setShowQuestions] = useState(true); // State for showing questions
 	const bottomRef = useRef(null); // Reference for the bottom of the conversation
 
 	const handleQuestionClick = async (question) => {
@@ -50,47 +55,23 @@ function Choices({ animate }) {
 		bottomRef.current?.scrollIntoView({ behavior: "smooth" });
 	}, [conversation]);
 
+	// Scroll to the bottom with a delay when questions are toggled
+	const toggleQuestions = () => {
+		setShowQuestions((prevShowQuestions) => {
+			const newShowQuestions = !prevShowQuestions;
+			if (newShowQuestions) {
+				// Set a timeout to scroll after a delay
+				setTimeout(() => {
+					bottomRef.current?.scrollIntoView({ behavior: "smooth" }); // Scroll to bottom when questions are shown
+				}, 1000); // 1 second delay
+			}
+			return newShowQuestions; // Return the new state
+		});
+	};
+
 	return (
 		<>
 			<div className="relative">
-				<motion.div
-					className="flex flex-row justify-evenly flex-wrap mt-14"
-					initial="hidden"
-					animate={animate ? "visible" : "hidden"}
-					variants={{
-						visible: {
-							transition: {
-								staggerChildren: 0.1,
-							},
-						},
-						hidden: {
-							transition: {
-								staggerChildren: 0.1,
-							},
-						},
-					}}>
-					{questions.map((question, index) => (
-						<motion.p
-							key={question.id}
-							className="bg-[#d98ab5] mb-6 text-white py-6 px-4 rounded-xl w-[150px] text-center flex items-center justify-center shadow-2xl cursor-pointer"
-							initial={{ x: -100, opacity: 0 }}
-							animate={{
-								x: animate ? 0 : -100,
-								opacity: animate ? 1 : 0,
-							}}
-							transition={{
-								type: "spring",
-								stiffness: 300,
-								damping: 20,
-								delay: animate ? index * 0.1 : 0,
-							}}
-							onClick={() => handleQuestionClick(question.question)} // Send API request on click
-						>
-							{question.question}
-						</motion.p>
-					))}
-				</motion.div>
-
 				{/* Display the conversation between user and bot */}
 				<div className="conversation-stack mt-8 mb-24">
 					{conversation.map((message, index) =>
@@ -112,10 +93,55 @@ function Choices({ animate }) {
 					<div ref={bottomRef} />
 				</div>
 
-				<div className="fixed bottom-0 w-full h-24 bg-gradient-to-t from-[#d98ab5]"></div>
+				{showQuestions && (
+					<motion.div
+						className="flex flex-row justify-evenly flex-wrap mt-14 mb-8"
+						initial="hidden"
+						animate={animate ? "visible" : "hidden"}
+						variants={{
+							visible: {
+								transition: {
+									staggerChildren: 0.1,
+								},
+							},
+							hidden: {
+								transition: {
+									staggerChildren: 0.1,
+								},
+							},
+						}}>
+						{questions.map((question, index) => (
+							<motion.p
+								key={question.id}
+								className="text-xs bg-[#d98ab5] mb-6 text-white p-4 rounded-xl w-[150px] text-center flex items-center justify-center shadow-2xl cursor-pointer"
+								initial={{ x: -100, opacity: 0 }}
+								animate={{
+									x: animate ? 0 : -100,
+									opacity: animate ? 1 : 0,
+								}}
+								transition={{
+									type: "spring",
+									stiffness: 300,
+									damping: 20,
+									delay: animate ? index * 0.1 : 0,
+								}}
+								onClick={() => {
+									handleQuestionClick(question.question); // Send API request on click
+									setShowQuestions(false); // Hide questions when one is clicked
+								}}>
+								{question.question}
+							</motion.p>
+						))}
+					</motion.div>
+				)}
 
 				{/* Input field for sending message */}
 				<div className="sticky bottom-4 w-[95%] mx-auto bg-white flex px-1 py-1 rounded-full border border-purple-500 overflow-hidden font-[sans-serif]">
+					<div
+						className="p-2 bg-purple-700 rounded-full text-white"
+						onClick={toggleQuestions}>
+						<p>FAQ</p>
+					</div>
 					<input
 						type="text"
 						placeholder="Ask something..."
