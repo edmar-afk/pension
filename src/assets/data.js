@@ -1,39 +1,27 @@
-import WifiIcon from "@mui/icons-material/Wifi";import BedOutlinedIcon from "@mui/icons-material/BedOutlined";import LiveTvOutlinedIcon from "@mui/icons-material/LiveTvOutlined";import AcUnitOutlinedIcon from "@mui/icons-material/AcUnitOutlined";import CribOutlinedIcon from "@mui/icons-material/CribOutlined";import img1 from "../assets/img/room3/1.jpg";
-import img2 from "../assets/img/room3/2.jpg";
-import img3 from "../assets/img/room3/3.jpg";
-import img4 from "../assets/img/room3/4.jpg";
-
-import img5 from "../assets/img/room4/5.jpg";
-import img6 from "../assets/img/room4/6.jpg";
-import img7 from "../assets/img/room4/7.jpg";
-
-import img8 from "../assets/img/room1/1.jpg";
-import img9 from "../assets/img/room1/2.jpg";
-import img10 from "../assets/img/room1/3.jpg";
-
-import img11 from "../assets/img/room2/1.jpg";
-import img12 from "../assets/img/room2/2.jpg";
-import img13 from "../assets/img/room2/3.jpg";
-import img14 from "../assets/img/room2/4.jpg";
-import img15 from "../assets/img/room2/5.jpg";
-import img16 from "../assets/img/room2/6.jpg";
-import img17 from "../assets/img/room2/7.jpg";
-
-import img18 from "../assets/img/room5/1.jpg";
-import img19 from "../assets/img/room5/2.jpg";
+import WifiIcon from "@mui/icons-material/Wifi";import BedOutlinedIcon from "@mui/icons-material/BedOutlined";import LiveTvOutlinedIcon from "@mui/icons-material/LiveTvOutlined";import AcUnitOutlinedIcon from "@mui/icons-material/AcUnitOutlined";import CribOutlinedIcon from "@mui/icons-material/CribOutlined";import img1 from "../assets/img/room3/1.jpg";import img2 from "../assets/img/room3/2.jpg";import img3 from "../assets/img/room3/3.jpg";import img4 from "../assets/img/room3/4.jpg";import img5 from "../assets/img/room4/5.jpg";import img6 from "../assets/img/room4/6.jpg";import img7 from "../assets/img/room4/7.jpg";import img8 from "../assets/img/room1/1.jpg";import img9 from "../assets/img/room1/2.jpg";import img10 from "../assets/img/room1/3.jpg";import img11 from "../assets/img/room2/1.jpg";import img12 from "../assets/img/room2/2.jpg";import img13 from "../assets/img/room2/3.jpg";import img14 from "../assets/img/room2/4.jpg";import img15 from "../assets/img/room2/5.jpg";import img16 from "../assets/img/room2/6.jpg";import img17 from "../assets/img/room2/7.jpg";import img18 from "../assets/img/room5/1.jpg";import img19 from "../assets/img/room5/2.jpg";
 
 import img21 from "../assets/img/room6/1.jpg";
 import img22 from "../assets/img/room6/2.jpg";
 
 const questions = [
-	{ id: 1, question: "When do you open?" },
-	{ id: 2, question: "Hi?" },
-	{ id: 3, question: "Good Morning" },
-	{ id: 4, question: "I need help of something?" },
-	{ id: 5, question: "Can you help me?" },
-	{ id: 6, question: "Bye" },
-	{ id: 7, question: "Cool" },
-	{ id: 8, question: "Ok" },
+	{ id: 1, question: "Do you offer rooms with special amenities like a balcony or kitchenette?" },
+	{ id: 2, question: "What attractions or restaurants are near the pension house?" },
+	{ id: 3, question: "Do you offer room service, and what are the available hours?" },
+	{ id: 4, question: "Do you have elevators or ramps for wheelchair access?" },
+	{ id: 5, question: "Do you offer discounts for extended stays or group bookings?" },
+	{
+		id: 6,
+		question:
+			"Do you provide audio-visual equipment, such as projectors, microphones, and speakers in your function hall?",
+	},
+	{ id: 7, question: "Do you offer event packages for weddings, birthdays, or corporate meetings?" },
+	{ id: 8, question: "What are the overtime fees if the event exceeds the allotted time?" },
+	{ id: 9, question: "Can we bring our own caterer, and are there additional fees for that?" },
+	{ id: 10, question: "Can I request extra beds or a sofa bed for additional guests?" },
+	{ id: 11, question: "How much if we want to hold a wedding party in your function hall?" },
+	{ id: 12, question: "Who is responsible for cleaning and restoring the function hall after the event?" },
+	{ id: 13, question: "Are there restrictions on serving alcohol during events?" },
+	{ id: 14, question: "Do you provide seating arrangements for events, such as round tables and chairs?" },
 ];
 
 const features = [
