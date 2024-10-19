@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */ import { motion } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
-import { questions } from "../../assets/data";
+import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";import { questions, support } from "../../assets/data";
 import api from "../../assets/api";
 import Sender from "../chatbot/Sender";
 import Receiver from "../chatbot/Receiver";
@@ -9,7 +7,17 @@ function Choices({ animate }) {
 	const [conversation, setConversation] = useState([]); // State to store conversation
 	const [inputMessage, setInputMessage] = useState(""); // State for the input field
 	const [showQuestions, setShowQuestions] = useState(true); // State for showing questions
+	const [matchedSupport, setMatchedSupport] = useState(null); // State for matched support data
+	const [showMatchedSupport, setShowMatchedSupport] = useState(false); // State to control visibility of matched support
 	const bottomRef = useRef(null); // Reference for the bottom of the conversation
+
+	const normalizeText = (text) => {
+		return text
+			.replace(/₱/g, "P") // Replace peso sign with a plain 'P'
+			.replace(/â‚±/g, "₱") // Replace any unwanted characters with a proper peso sign
+			.replace(/[^\w\s]/g, "") // Remove any non-alphanumeric characters (optional)
+			.toLowerCase(); // Make case-insensitive for better matching
+	};
 
 	const handleQuestionClick = async (question) => {
 		const timeSent = new Date().toLocaleTimeString(); // Get current time
@@ -19,11 +27,34 @@ function Choices({ animate }) {
 
 		try {
 			const result = await api.post("/api/chatbot/", { question });
+			const botResponse = result.data.answer;
+
 			// Add the bot's response to the conversation with time sent
 			setConversation((prevConversation) => [
 				...prevConversation,
-				{ type: "bot", content: result.data.answer, timeSent: new Date().toLocaleTimeString() },
+				{ type: "bot", content: botResponse, timeSent: new Date().toLocaleTimeString() },
 			]);
+
+			// Normalize the bot response
+			const normalizedBotResponse = normalizeText(botResponse);
+
+			// Check if the normalized response matches any trigger in the support array
+			const matched = support.find((item) => {
+				const normalizedTrigger = normalizeText(item.trigger);
+				return normalizedBotResponse.includes(normalizedTrigger); // Check if bot response contains the trigger
+			});
+
+			if (matched) {
+				// Set matched support data with a 3-second delay
+				setTimeout(() => {
+					setMatchedSupport(matched); // Set the matched support data
+					setShowMatchedSupport(true); // Show matched support after delay
+					// Scroll to the bottom after matched support is shown
+					bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+				}, 3000);
+			} else {
+				setMatchedSupport(null); // Clear the matched support data if no match
+			}
 		} catch (error) {
 			console.error(error);
 			setConversation((prevConversation) => [
@@ -58,6 +89,17 @@ function Choices({ animate }) {
 			}
 			return newShowQuestions; // Return the new state
 		});
+	};
+
+	// Handle clicking a matched support question
+	const handleSupportQuestionClick = (question) => {
+		handleQuestionClick(question); // Send the support question to the chatbot
+		setShowMatchedSupport(false); // Hide matched support after clicking
+	};
+
+	// Handle hiding matched support
+	const handleHideMatchedSupport = () => {
+		setShowMatchedSupport(false);
 	};
 
 	return (
@@ -123,6 +165,37 @@ function Choices({ animate }) {
 								{question.question}
 							</motion.p>
 						))}
+					</motion.div>
+				)}
+
+				{/* Render matched support information with animation */}
+				{matchedSupport && showMatchedSupport && (
+					<motion.div
+						className="bg-gray-100 p-4 rounded-lg mt-4 bottom-16 sticky"
+						initial={{ opacity: 0, y: -20 }} // Start hidden
+						animate={{ opacity: 1, y: 0 }} // Fade in and slide down
+						exit={{ opacity: 0, y: -20 }} // Fade out and slide up
+						transition={{ duration: 0.3 }}>
+						{" "}
+						{/* Animation duration */}
+						<div className="flex flex-row justify-between items-center text-gray-600">
+							<h4 className="text-lg font-semibold mb-2">You might also ask</h4>
+							<p
+								className="cursor-pointer text-blue-600 hover:underline"
+								onClick={handleHideMatchedSupport}>
+								Hide
+							</p>
+						</div>
+						<ul className="list-disc ml-6 mt-2">
+							{matchedSupport.questions.map((q) => (
+								<li
+									key={q.id}
+									className="cursor-pointer text-blue-600 hover:underline"
+									onClick={() => handleSupportQuestionClick(q.question)}>
+									{q.question}
+								</li>
+							))}
+						</ul>
 					</motion.div>
 				)}
 
