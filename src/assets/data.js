@@ -1,12 +1,4 @@
-import WifiIcon from "@mui/icons-material/Wifi";import BedOutlinedIcon from "@mui/icons-material/BedOutlined";import LiveTvOutlinedIcon from "@mui/icons-material/LiveTvOutlined";import AcUnitOutlinedIcon from "@mui/icons-material/AcUnitOutlined";import CribOutlinedIcon from "@mui/icons-material/CribOutlined";import img1 from "../assets/img/room3/1.jpg";import img2 from "../assets/img/room3/2.jpg";import img3 from "../assets/img/room3/3.jpg";import img4 from "../assets/img/room3/4.jpg";import img5 from "../assets/img/room4/5.jpg";import img6 from "../assets/img/room4/6.jpg";import img7 from "../assets/img/room4/7.jpg";import img8 from "../assets/img/room1/1.jpg";import img9 from "../assets/img/room1/2.jpg";import img10 from "../assets/img/room1/3.jpg";
-import img11 from "../assets/img/room2/1.jpg";
-import img12 from "../assets/img/room2/2.jpg";
-import img13 from "../assets/img/room2/3.jpg";
-import img14 from "../assets/img/room2/4.jpg";
-import img15 from "../assets/img/room2/5.jpg";
-import img16 from "../assets/img/room2/6.jpg";
-import img17 from "../assets/img/room2/7.jpg";
-import img18 from "../assets/img/room5/1.jpg";
+import WifiIcon from "@mui/icons-material/Wifi";import BedOutlinedIcon from "@mui/icons-material/BedOutlined";import LiveTvOutlinedIcon from "@mui/icons-material/LiveTvOutlined";import AcUnitOutlinedIcon from "@mui/icons-material/AcUnitOutlined";import CribOutlinedIcon from "@mui/icons-material/CribOutlined";import img1 from "../assets/img/room3/1.jpg";import img2 from "../assets/img/room3/2.jpg";import img3 from "../assets/img/room3/3.jpg";import img4 from "../assets/img/room3/4.jpg";import img5 from "../assets/img/room4/5.jpg";import img6 from "../assets/img/room4/6.jpg";import img7 from "../assets/img/room4/7.jpg";import img8 from "../assets/img/room1/1.jpg";import img9 from "../assets/img/room1/2.jpg";import img10 from "../assets/img/room1/3.jpg";import img11 from "../assets/img/room2/1.jpg";import img12 from "../assets/img/room2/2.jpg";import img13 from "../assets/img/room2/3.jpg";import img14 from "../assets/img/room2/4.jpg";import img15 from "../assets/img/room2/5.jpg";import img16 from "../assets/img/room2/6.jpg";import img17 from "../assets/img/room2/7.jpg";import img18 from "../assets/img/room5/1.jpg";
 import img19 from "../assets/img/room5/2.jpg";
 import img21 from "../assets/img/room6/1.jpg";
 import img22 from "../assets/img/room6/2.jpg";
@@ -34,8 +26,6 @@ const questions = [
 	{ id: 13, question: "Are there restrictions on serving alcohol during events?" },
 	{ id: 14, question: "Do you provide seating arrangements for events, such as round tables and chairs?" },
 ];
-
-
 
 const support = [
 	{
@@ -72,6 +62,90 @@ const support = [
 			{
 				id: 3,
 				question: "What is the payment schedule for function hall rentals?",
+			},
+		],
+	},
+	{
+		id: 3,
+		trigger: "Our function hall can accommodate between 200 to 300 guests.",
+		questions: [
+			{
+				id: 1,
+				question: "Can we increase the capacity by adding extra chairs or tables?",
+			},
+			{
+				id: 2,
+				question: "How many guests can be seated at each table?",
+			},
+		],
+	},
+	{
+		id: 4,
+		trigger: "Yes, we have ample parking space available for guests.",
+		questions: [
+			{
+				id: 1,
+				question: "Is there a fee for parking?",
+			},
+			{
+				id: 2,
+				question: "Is parking secure?",
+			},
+		],
+	},
+	{
+		id: 5,
+		trigger: "Yes, catering options can be arranged based on customer preferences.",
+		questions: [
+			{
+				id: 1,
+				question: "Can you suggest where we can book a food package?",
+			},
+			{
+				id: 2,
+				question: "What attractions or restaurants are near the pension house?",
+			},
+		],
+	},
+	{
+		id: 5,
+		trigger: "Default FAQs",
+		questions: [
+			{
+				id: 1,
+				question: "Do you have 24-hour security or CCTV monitoring?",
+			},
+			{
+				id: 2,
+				question: "What payment methods do you accept?",
+			},
+			{
+				id: 3,
+				question: "How can I book a room?",
+			},
+			{
+				id: 4,
+				question: "What are your check-in and check-out times?",
+			},
+			{
+				id: 5,
+				question: "What is your cancellation policy?",
+			},
+			{
+				id: 6,
+				question: "Do you offer laundry or dry cleaning service?",
+			},
+			{
+				id: 7,
+				question: "What is your policy on visitors?",
+			},
+			{
+				id: 8,
+				question: "Do the rooms have a desk or workspace?",
+			},
+			{
+				id: 9,
+				question: "Do you offer weekly stays in your rooms?",
 			},
 		],
 	},

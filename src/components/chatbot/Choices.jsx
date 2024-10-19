@@ -1,6 +1,4 @@
-import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";import { questions, support } from "../../assets/data";
-import api from "../../assets/api";
-import Sender from "../chatbot/Sender";
+import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";import { questions, support } from "../../assets/data";import api from "../../assets/api";import Sender from "../chatbot/Sender";
 import Receiver from "../chatbot/Receiver";
 
 function Choices({ animate }) {
@@ -39,22 +37,24 @@ function Choices({ animate }) {
 			const normalizedBotResponse = normalizeText(botResponse);
 
 			// Check if the normalized response matches any trigger in the support array
-			const matched = support.find((item) => {
+			let matched = support.find((item) => {
 				const normalizedTrigger = normalizeText(item.trigger);
 				return normalizedBotResponse.includes(normalizedTrigger); // Check if bot response contains the trigger
 			});
 
-			if (matched) {
-				// Set matched support data with a 3-second delay
-				setTimeout(() => {
-					setMatchedSupport(matched); // Set the matched support data
-					setShowMatchedSupport(true); // Show matched support after delay
-					// Scroll to the bottom after matched support is shown
-					bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-				}, 3000);
-			} else {
-				setMatchedSupport(null); // Clear the matched support data if no match
+			// If no match is found, use the default FAQs
+			if (!matched) {
+				// Fallback to the default FAQs
+				matched = support.find((item) => item.trigger === "Default FAQs");
 			}
+
+			// Set matched support data with a 3-second delay
+			setTimeout(() => {
+				setMatchedSupport(matched); // Set the matched support data (either specific or default)
+				setShowMatchedSupport(true); // Show matched support
+				// Scroll to the bottom after matched support is shown
+				bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+			}, 3000);
 		} catch (error) {
 			console.error(error);
 			setConversation((prevConversation) => [
@@ -63,6 +63,7 @@ function Choices({ animate }) {
 			]);
 		}
 	};
+
 
 	// Handle sending the message from the input field
 	const handleSendMessage = () => {
@@ -175,23 +176,24 @@ function Choices({ animate }) {
 						initial={{ opacity: 0, y: -20 }} // Start hidden
 						animate={{ opacity: 1, y: 0 }} // Fade in and slide down
 						exit={{ opacity: 0, y: -20 }} // Fade out and slide up
-						transition={{ duration: 0.3 }}>
-						{" "}
-						{/* Animation duration */}
+						transition={{ duration: 0.3 }} // Animation duration
+					>
 						<div className="flex flex-row justify-between items-center text-gray-600">
 							<h4 className="text-lg font-semibold mb-2">You might also ask</h4>
 							<p
 								className="cursor-pointer text-blue-600 hover:underline"
-								onClick={handleHideMatchedSupport}>
+								onClick={handleHideMatchedSupport} // Only this button will hide the matched section
+							>
 								Hide
 							</p>
 						</div>
-						<ul className="list-disc ml-6 mt-2">
+						<ul className="list-none ml-6 mt-2 flex justify-start sm:justify-evenly flex-wrap">
 							{matchedSupport.questions.map((q) => (
 								<li
 									key={q.id}
-									className="cursor-pointer text-blue-600 hover:underline"
-									onClick={() => handleSupportQuestionClick(q.question)}>
+									className="cursor-pointer text-xs text-blue-600 hover:underline bg-purple-50 my-1 py-1.5 px-3 rounded-md"
+									onClick={() => handleSupportQuestionClick(q.question)} // Clicking a question will NOT hide matched support
+								>
 									{q.question}
 								</li>
 							))}
