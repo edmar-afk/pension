@@ -1,4 +1,8 @@
-import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";import { questions, support } from "../../assets/data";import api from "../../assets/api";import Sender from "../chatbot/Sender";
+import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { questions, support } from "../../assets/data";
+import api from "../../assets/api";
+import Sender from "../chatbot/Sender";
 import Receiver from "../chatbot/Receiver";
 
 function Choices({ animate }) {
@@ -63,7 +67,6 @@ function Choices({ animate }) {
 			]);
 		}
 	};
-
 
 	// Handle sending the message from the input field
 	const handleSendMessage = () => {
@@ -191,7 +194,7 @@ function Choices({ animate }) {
 							{matchedSupport.questions.map((q) => (
 								<li
 									key={q.id}
-									className="cursor-pointer text-xs text-blue-600 hover:underline bg-purple-50 my-1 py-1.5 px-3 rounded-md"
+									className="cursor-pointer text-xs text-gray-900 hover:underline bg-purple-50 my-1 py-1.5 px-3 rounded-md"
 									onClick={() => handleSupportQuestionClick(q.question)} // Clicking a question will NOT hide matched support
 								>
 									{q.question}

@@ -1,6 +1,4 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import AppBar from "@mui/material/AppBar";
+import { useState } from "react";import { NavLink } from "react-router-dom";import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -11,12 +9,18 @@ import { Box, Button } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import logo from "../assets/img/logo.png";
+import ThreePIcon from "@mui/icons-material/ThreeP";
+import ChatBotDrawer from "./ChatBotDrawer";
 
 export default function NavBar() {
 	const [anchorEl, setAnchorEl] = useState(null);
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+	const [isChatBotOpen, setChatBotOpen] = useState(false);
 
+	const showChatBot = () => {
+		setChatBotOpen(true); // Open the drawer
+	};
 	const handleMenuOpen = (event) => {
 		setAnchorEl(event.currentTarget);
 	};
@@ -118,13 +122,14 @@ export default function NavBar() {
 								style={navLinkStyles}>
 								Events
 							</NavLink>
-							<NavLink
+							{/* <NavLink
 								to="/pricing"
 								style={navLinkStyles}>
 								Pricing
-							</NavLink>
+							</NavLink> */}
 							<Button
 								variant="contained"
+								onClick={showChatBot}
 								sx={{ backgroundColor: "#d98ab5", color: "#fff" }}>
 								Chatbot
 							</Button>
@@ -134,6 +139,11 @@ export default function NavBar() {
 			</AppBar>
 			{/* Add padding to prevent content overlap */}
 			<Box sx={{ paddingTop: "64px" }}>{/* Rest of the content goes here */}</Box>
+
+			<ChatBotDrawer
+				isOpen={isChatBotOpen}
+				setIsOpen={setChatBotOpen}
+			/>
 		</>
 	);
 }

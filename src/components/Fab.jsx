@@ -1,10 +1,13 @@
-import ThreePIcon from "@mui/icons-material/ThreeP";import ChatBotDrawer from "./ChatBotDrawer";import { useState } from "react";function Fab() {
+import ThreePIcon from "@mui/icons-material/ThreeP";
+import ChatBotDrawer from "./ChatBotDrawer";
+import { useState } from "react";
+function Fab() {
 	const [isChatBotOpen, setChatBotOpen] = useState(false);
 
 	const showChatBot = () => {
 		setChatBotOpen(true); // Open the drawer
 	};
-  return (
+	return (
 		<>
 			<div
 				onClick={showChatBot}
