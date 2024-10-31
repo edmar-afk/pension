@@ -26,15 +26,13 @@ export default function ChatBotDrawer({ isOpen, setIsOpen }) {
 				}}>
 				<div className="w-[350px] sm:w-[670px]">
 					{/* Conditionally render Chatbot if userData.id exists, otherwise CheckUser */}
-					{userData?.id ? (
+					
 						<Chatbot
 							animate={isOpen}
 							setIsOpen={setIsOpen}
-							name={userData.first_name}
+							
 						/>
-					) : (
-						<CheckUser />
-					)}
+					
 				</div>
 			</SwipeableDrawer>
 		</>

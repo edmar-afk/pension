@@ -10,13 +10,9 @@ function Details({ name }) {
 					alt=""
 					className="w-56"
 				/>
-				<Link
-					to={"/logout"}
-					className="bg-red-600 text-white py-1 px-4 rounded-xl my-4">
-					Logout
-				</Link>
+				
 				<p className="text-center">
-					Hello <span className="font-bold text-purple-600">{name}</span> Need Clarifications? I'll answer anything just
+					Hello need clarifications? I'll answer anything just
 					pick question below.
 				</p>
 			</div>
