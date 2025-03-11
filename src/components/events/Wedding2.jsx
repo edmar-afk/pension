@@ -73,7 +73,7 @@ function Wedding2() {
 						</div>
 					</div>
 				</div>
-				<p className="text-2xl sm:text-4xl mt-4 font-bold font-cursive">
+				<p className="text-2xl sm:text-4xl mt-4 font-bold">
 					At Bryne's 888 pension house and function hall
 				</p>
 				<p className="text-gray-800 text-lg sm:text-xl my-4">
