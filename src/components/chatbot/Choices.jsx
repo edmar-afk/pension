@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";import { questions, support } from "../../assets/data";import api from "../../assets/api";import Sender from "../chatbot/Sender";import Receiver from "../chatbot/Receiver";
-function Choices({ animate }) {
+import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";import { questions, support } from "../../assets/data";import api from "../../assets/api";import Sender from "../chatbot/Sender";import Receiver from "../chatbot/Receiver";function Choices({ animate }) {
 	const [conversation, setConversation] = useState([]); // State to store conversation
 	const [inputMessage, setInputMessage] = useState(""); // State for the input field
 	const [showQuestions, setShowQuestions] = useState(true); // State for showing questions
@@ -105,9 +104,7 @@ function Choices({ animate }) {
 			<div className="relative">
 				{/* Display the conversation between user and bot */}
 				<div className="conversation-stack mt-8 mb-24">
-					<Receiver
-						botResponse="<br>Hello Ma'am and Sir.........<br><br> Welcome to Bryne’s 888 Pension House, where comfort meets affordability! Whether you're traveling for business or leisure, we offer cozy accommodations, excellent service, and a relaxing atmosphere to make you feel at home. Need clarifications? I'll answer anything just pick question below."
-					/>
+					<Receiver botResponse="<br>Hello Ma'am and Sir.........<br><br> Welcome to Bryne’s 888 Pension House, where comfort meets affordability! Whether you're traveling for business or leisure, we offer cozy accommodations, excellent service, and a relaxing atmosphere to make you feel at home. Need clarifications? I'll answer anything just pick question below." />
 					{conversation.map((message, index) =>
 						message.type === "user" ? (
 							<Sender
@@ -187,13 +184,12 @@ function Choices({ animate }) {
 								Hide
 							</p>
 						</div>
-						<ul className="list-none ml-6 mt-2 flex justify-start sm:justify-evenly flex-wrap">
+						<ul className="list-none ml-6 mt-2 flex justify-start sm:justify-evenly flex-nowrap overflow-x-auto min-w-full">
 							{matchedSupport.questions.map((q) => (
 								<li
 									key={q.id}
-									className="cursor-pointer text-xs text-gray-900 hover:underline bg-purple-50 my-1 py-1.5 mx-3 rounded-md"
-									onClick={() => handleSupportQuestionClick(q.question)} // Clicking a question will NOT hide matched support
-								>
+									className="cursor-pointer text-xs text-gray-900 hover:underline bg-purple-50 my-1 py-1.5 mx-3 rounded-md whitespace-nowrap"
+									onClick={() => handleSupportQuestionClick(q.question)}>
 									{q.question}
 								</li>
 							))}
