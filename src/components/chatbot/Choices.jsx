@@ -173,7 +173,7 @@ function Choices({ animate }) {
 				{/* Render matched support information with animation */}
 				{matchedSupport && showMatchedSupport && (
 					<motion.div
-						className="bg-gray-100 p-4 rounded-lg mt-4 bottom-16 overflow-x-hidden"
+						className="bg-gray-100 p-4 rounded-lg mt-4 bottom-12 overflow-x-hidden sticky"
 						initial={{ opacity: 0, y: -20 }} // Start hidden
 						animate={{ opacity: 1, y: 0 }} // Fade in and slide down
 						exit={{ opacity: 0, y: -20 }} // Fade out and slide up
