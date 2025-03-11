@@ -1,10 +1,13 @@
-/* eslint-disable react/no-unescaped-entities */import img1 from "../../assets/img/events/wedding2/1.jpg";import img2 from "../../assets/img/events/wedding2/2.jpg";import img3 from "../../assets/img/events/wedding2/3.jpg";import img4 from "../../assets/img/events/wedding2/4.jpg";
+/* eslint-disable react/no-unescaped-entities */ import img1 from "../../assets/img/events/wedding2/1.jpg";
+import img2 from "../../assets/img/events/wedding2/2.jpg";
+import img3 from "../../assets/img/events/wedding2/3.jpg";
+import img4 from "../../assets/img/events/wedding2/4.jpg";
 import img5 from "../../assets/img/events/wedding2/5.jpg";
 function Wedding2() {
 	return (
 		<>
 			<div className="p-2 sm:p-24">
-				<p className="font-bold font-cursive text-2xl sm:text-5xl mt-24 mb-14 sm:mb-24">
+				<p className="font-bold text-2xl sm:text-5xl mt-24 mb-14 sm:mb-24">
 					Capture the magic of your special day with us
 				</p>
 				<div className="carousel w-full">

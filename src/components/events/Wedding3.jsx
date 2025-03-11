@@ -3,7 +3,7 @@ import wedding4 from "../../assets/img/events/wedding3/4.jpg";
 function Wedding3() {
 	return (
 		<>
-			<div className="font-cursive pb-44  flex flex-col sm:flex-row items-center justify-center gap-8 w-full mx-auto p-4 px-4 md:px-64">
+			<div className="pb-44  flex flex-col sm:flex-row items-center justify-center gap-8 w-full mx-auto p-4 px-4 md:px-64">
 				<div className="w-full sm:w-1/2">
 					<h3 className="text-3xl font-extrabold text-gray-800">
 						Turn your dream wedding into a beautiful reality at Bryne's 888 Pension House
