@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";
-import { questions, support } from "../../assets/data";
+import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";import { questions, support } from "../../assets/data";
 import api from "../../assets/api";
 import Sender from "../chatbot/Sender";
 import Receiver from "../chatbot/Receiver";
@@ -174,7 +173,7 @@ function Choices({ animate }) {
 				{/* Render matched support information with animation */}
 				{matchedSupport && showMatchedSupport && (
 					<motion.div
-						className="bg-gray-100 p-4 rounded-lg mt-4 bottom-16 "
+						className="bg-gray-100 p-4 rounded-lg mt-4 bottom-16 overflow-x-hidden"
 						initial={{ opacity: 0, y: -20 }} // Start hidden
 						animate={{ opacity: 1, y: 0 }} // Fade in and slide down
 						exit={{ opacity: 0, y: -20 }} // Fade out and slide up
@@ -189,13 +188,12 @@ function Choices({ animate }) {
 								Hide
 							</p>
 						</div>
-						<ul className="list-none ml-6 mt-2 flex justify-start sm:justify-evenly flex-wrap">
+						<ul className="list-none ml-6 mt-2 mb-4 flex justify-start sm:justify-evenly flex-nowrap overflow-x-auto min-w-full">
 							{matchedSupport.questions.map((q) => (
 								<li
 									key={q.id}
-									className="cursor-pointer text-xs text-gray-900 hover:underline bg-purple-50 my-1 py-1.5 px-3 rounded-md"
-									onClick={() => handleSupportQuestionClick(q.question)} // Clicking a question will NOT hide matched support
-								>
+									className="cursor-pointer text-xs text-gray-900 hover:underline bg-purple-50 my-1 py-1.5 mx-3 rounded-md whitespace-nowrap"
+									onClick={() => handleSupportQuestionClick(q.question)}>
 									{q.question}
 								</li>
 							))}
@@ -204,7 +202,7 @@ function Choices({ animate }) {
 				)}
 
 				{/* Input field for sending message */}
-			
+
 				<div className="sticky bottom-4 w-[95%] mx-auto flex px-1 py-1 rounded-full border border-purple-500 overflow-hidden font-[sans-serif]">
 					<div
 						className="p-2 bg-purple-700 rounded-full text-white"
