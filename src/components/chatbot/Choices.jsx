@@ -1,6 +1,4 @@
-import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";import { questions, support } from "../../assets/data";
-import api from "../../assets/api";
-import Sender from "../chatbot/Sender";
+import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";import { questions, support } from "../../assets/data";import api from "../../assets/api";import Sender from "../chatbot/Sender";
 import Receiver from "../chatbot/Receiver";
 
 function Choices({ animate }) {
@@ -109,6 +107,7 @@ function Choices({ animate }) {
 			<div className="relative">
 				{/* Display the conversation between user and bot */}
 				<div className="conversation-stack mt-8 mb-24">
+					<Receiver botResponse="Looking for a Comfortable and Affordable Stay? <br><br> Welcome to Bryne’s 888 Pension House, where comfort meets affordability! Whether you're traveling for business or leisure, we offer cozy accommodations, excellent service, and a relaxing atmosphere to make you feel at home. <br><br> Book your stay with us today and experience the perfect place to rest and recharge!" />
 					{conversation.map((message, index) =>
 						message.type === "user" ? (
 							<Sender
