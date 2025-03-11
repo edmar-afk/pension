@@ -204,7 +204,7 @@ function Choices({ animate }) {
 				)}
 
 				{/* Input field for sending message */}
-				<div className="bg-white  w-full h-14 fixed bottom-0"></div>
+			
 				<div className="sticky bottom-4 w-[95%] mx-auto flex px-1 py-1 rounded-full border border-purple-500 overflow-hidden font-[sans-serif]">
 					<div
 						className="p-2 bg-purple-700 rounded-full text-white"
