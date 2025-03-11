@@ -95,13 +95,7 @@ export default function NavBar() {
 										Events
 									</NavLink>
 								</MenuItem>
-								<MenuItem onClick={handleMenuClose}>
-									<NavLink
-										to="/pricing"
-										style={navLinkStyles}>
-										Pricing
-									</NavLink>
-								</MenuItem>
+								
 							</Menu>
 						</>
 					) : (
@@ -122,11 +116,7 @@ export default function NavBar() {
 								style={navLinkStyles}>
 								Events
 							</NavLink>
-							{/* <NavLink
-								to="/pricing"
-								style={navLinkStyles}>
-								Pricing
-							</NavLink> */}
+							
 							<Button
 								variant="contained"
 								onClick={showChatBot}
