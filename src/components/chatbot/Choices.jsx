@@ -132,7 +132,7 @@ function Choices({ animate }) {
 
 				{showQuestions && (
 					<motion.div
-						className="flex flex-row justify-evenly flex-wrap mt-14 mb-8"
+						className="flex flex-row justify-evenly flex-wrap mt-14 mb-8 h-44 overflow-y-scroll"
 						initial="hidden"
 						animate={animate ? "visible" : "hidden"}
 						variants={{
