@@ -1,9 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/no-unescaped-entities */
-import { useEffect, useState } from "react";
-import SmartToyIcon from "@mui/icons-material/SmartToy";
-import room1 from "../../assets/videos/room1.mp4";
-import room2 from "../../assets/videos/room2.mp4";
+/* eslint-disable react/prop-types *//* eslint-disable react/no-unescaped-entities */import { useEffect, useState } from "react";import SmartToyIcon from "@mui/icons-material/SmartToy";import room1 from "../../assets/videos/room1.mp4";import room2 from "../../assets/videos/room2.mp4";
 import room3 from "../../assets/videos/room3.mp4";
 import room4 from "../../assets/videos/room4.mp4";
 import room5 from "../../assets/videos/room5.mp4";
@@ -17,32 +12,32 @@ function Receiver({ botResponse, timeSent }) {
 
 		if (
 			botResponse.includes("Showing larger family-sized room that rates 850 for 12 hours and 1,500 for 24 hours.") ||
-			botResponse.includes("Room 1 family size")
+			botResponse.includes("Room 1 family sized room that rates 850 for 12 hours and 1,500  for 24 hours")
 		) {
 			matchedVideo = room1;
 		} else if (
 			botResponse.includes("Showing standard room that rates 650 for 12 hours and 950 for 24 hours.") ||
-			botResponse.includes("Room 2 Standard")
+			botResponse.includes("Room 2 Standard room that rates 650 for 12 hours and 950 for 24 hours.")
 		) {
 			matchedVideo = room2;
 		} else if (
 			botResponse.includes("Showing another standard room that rates 650 for 12 hours and 950 for 24 hours.") ||
-			botResponse.includes("Room 3 Standard")
+			botResponse.includes("Room 3 standard room that rates 650 for 12 hours and 950 for 24 hours.")
 		) {
 			matchedVideo = room3;
 		} else if (
 			botResponse.includes("Showing Deluxe or twin bed that rates are 1,000 for 12 hours and 1,800 for 24 hours.") ||
-			botResponse.includes("Room 4 Deluxe (Twinbed)")
+			botResponse.includes("Room 4 Deluxe or twin bed that rates 1,000 for 12 hours and 1,800 for 24 hours")
 		) {
 			matchedVideo = room4;
 		} else if (
 			botResponse.includes("Showing Deluxe that rates 750 for 12 hours and 1,200 for 24 hours.") ||
-			botResponse.includes("Room 5 Deluxe")
+			botResponse.includes("Room 5 the Deluxe that rates 750 for 12 hours and 1,200 for 24 hours")
 		) {
 			matchedVideo = room5;
 		} else if (
 			botResponse.includes("Take a look at our exclusive VIP room.") ||
-			botResponse.includes("Room 6 Non Aircon")
+			botResponse.includes("Room 6 Non-aircon 500 for 24hours and 350 for 12hours")
 		) {
 			matchedVideo = room6;
 		}
