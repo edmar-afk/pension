@@ -1,6 +1,4 @@
-import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";import { questions, support } from "../../assets/data";import api from "../../assets/api";import Sender from "../chatbot/Sender";
-import Receiver from "../chatbot/Receiver";
-
+import { motion } from "framer-motion";import { useState, useRef, useEffect } from "react";import { questions, support } from "../../assets/data";import api from "../../assets/api";import Sender from "../chatbot/Sender";import Receiver from "../chatbot/Receiver";
 function Choices({ animate }) {
 	const [conversation, setConversation] = useState([]); // State to store conversation
 	const [inputMessage, setInputMessage] = useState(""); // State for the input field
@@ -107,7 +105,9 @@ function Choices({ animate }) {
 			<div className="relative">
 				{/* Display the conversation between user and bot */}
 				<div className="conversation-stack mt-8 mb-24">
-					<Receiver botResponse="Looking for a Comfortable and Affordable Stay? <br><br> Welcome to Bryne’s 888 Pension House, where comfort meets affordability! Whether you're traveling for business or leisure, we offer cozy accommodations, excellent service, and a relaxing atmosphere to make you feel at home. <br><br> Book your stay with us today and experience the perfect place to rest and recharge!" />
+					<Receiver
+						botResponse="<br>Hello Ma'am and Sir.........<br><br> Welcome to Bryne’s 888 Pension House, where comfort meets affordability! Whether you're traveling for business or leisure, we offer cozy accommodations, excellent service, and a relaxing atmosphere to make you feel at home. Need clarifications? I'll answer anything just pick question below."
+					/>
 					{conversation.map((message, index) =>
 						message.type === "user" ? (
 							<Sender
@@ -129,7 +129,7 @@ function Choices({ animate }) {
 
 				{showQuestions && (
 					<motion.div
-						className="flex flex-row justify-evenly flex-wrap mt-14 mb-8 h-44 overflow-y-scroll"
+						className="flex flex-row justify-evenly flex-wrap mt-14 mb-8"
 						initial="hidden"
 						animate={animate ? "visible" : "hidden"}
 						variants={{
@@ -187,12 +187,13 @@ function Choices({ animate }) {
 								Hide
 							</p>
 						</div>
-						<ul className="list-none ml-6 mt-2 mb-4 flex justify-start sm:justify-evenly flex-nowrap overflow-x-auto min-w-full">
+						<ul className="list-none ml-6 mt-2 flex justify-start sm:justify-evenly flex-wrap">
 							{matchedSupport.questions.map((q) => (
 								<li
 									key={q.id}
-									className="cursor-pointer text-xs text-gray-900 hover:underline bg-purple-50 my-1 py-1.5 mx-3 rounded-md whitespace-nowrap"
-									onClick={() => handleSupportQuestionClick(q.question)}>
+									className="cursor-pointer text-xs text-gray-900 hover:underline bg-purple-50 my-1 py-1.5 mx-3 rounded-md"
+									onClick={() => handleSupportQuestionClick(q.question)} // Clicking a question will NOT hide matched support
+								>
 									{q.question}
 								</li>
 							))}
@@ -202,7 +203,7 @@ function Choices({ animate }) {
 
 				{/* Input field for sending message */}
 
-				<div className="sticky bottom-4 w-[95%] mx-auto flex px-1 py-1 rounded-full border border-purple-500 overflow-hidden font-[sans-serif]">
+				<div className="sticky bg-white bottom-4 w-[95%] mx-auto flex px-1 py-1 rounded-full border border-purple-500 overflow-hidden font-[sans-serif]">
 					<div
 						className="p-2 bg-purple-700 rounded-full text-white"
 						onClick={toggleQuestions}>
